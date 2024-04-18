@@ -67,7 +67,7 @@ class ImageParser:
 
 class FileParser:
     def __init__(self):
-        # self.image_parser = ImageParser('yolov8-1503.pt')
+        self.image_parser = ImageParser('yolov8-1503.pt')
         self.text_parser = TextParser()
 
     def __call__(self, file):
@@ -75,13 +75,10 @@ class FileParser:
         print(file, filetype)
         match filetype:
             case 'image/jpeg' | 'image/png':
-                # return {'data': self.image_parser(file)}
-                return {'data': 'self.image_parser(file)'}
+                return {'data': self.image_parser(file)}
             case 'application/pdf':
                 return {'data': self.text_parser.pdf(file)}
-                # return {'data': 'self.text_parser.pdf(file)'}
             case 'application/vnd.openxmlformats-officedocument.wordprocessingml.document':
                 return {'data': self.text_parser.docx(file)}
-                # return {'data': 'self.text_parser.docx(file)'}
             case _:
                 return {'data': []}

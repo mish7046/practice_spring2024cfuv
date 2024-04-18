@@ -1,7 +1,7 @@
 from fastapi import FastAPI, UploadFile
 from inference import FileParser
 
-app = FastAPI(debug=True)
+app = FastAPI()
 parser = FileParser()
 
 
